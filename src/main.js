@@ -12,8 +12,9 @@ function clearFields() {
 }
 
 function getElements(response) {
-  if (response.drinks) {
-    $('.showName').text(`The name of the receipe is ${Object.values(response.drinks[0])}`);
+  if (response.copyright) {
+    $('.showName').text(`IMAGE: ${response.title}`);
+    $("#imageBox").html(`<img src="${response.url}">`);
   } else {
     $('.showErrors').text(`There was an error: ${response.message}`);
   }
