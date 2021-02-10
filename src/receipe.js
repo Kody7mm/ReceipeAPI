@@ -1,6 +1,6 @@
 export default class Receipe {
   static getReceipe() {
-    return fetch(`https://api.nasa.gov/planetary/apod?api_key=sQh5wBQUo0IbcvJxmljNFbmx1qd6dfRXLoBrJbjW`)
+    return fetch(`https://api.nasa.gov/planetary/apod?api_key=`)
       .then(function(response) {
         if (!response.ok) {
           throw Error(response.statusText);
