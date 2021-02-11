@@ -12,9 +12,12 @@ function clearFields() {
 }
 
 function getElements(response) {
-  if (response.copyright) {
-    $('.showName').text(`IMAGE: ${response.title}`);
-    $("#imageBox").html(`<img src="${response.url}">`);
+  if (response.sol_keys) {
+    // const solKey = 779;
+    //  const firstPart = `${response}` + solKey;
+    // console.log(Object.values(response)[0].Season);
+    $('.showName').text(`IMAGE: ${Object.values(response)[0].Season}`);
+    // $("#imageBox").html(`<img src="${response.url}">`);
   } else {
     $('.showErrors').text(`There was an error: ${response.message}`);
   }

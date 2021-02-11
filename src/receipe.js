@@ -1,6 +1,6 @@
 export default class Receipe {
   static getReceipe() {
-    return fetch(`https://api.nasa.gov/planetary/apod?api_key=`)
+    return fetch(`https://api.nasa.gov/insight_weather/?api_key=&feedtype=json&ver=1.0`)
       .then(function(response) {
         if (!response.ok) {
           throw Error(response.statusText);
