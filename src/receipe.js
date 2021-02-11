@@ -1,35 +1,14 @@
-export default class Receipe {
-  static getReceipe() {
-    return fetch(`https://api.nasa.gov/insight_weather/?api_key=&feedtype=json&ver=1.0`)
-      .then(function(response) {
-        if (!response.ok) {
-          throw Error(response.statusText);
+export default class Receipe { //class designation on export  //2
+  static getReceipe(searchTerm) { //static method inside class
+    return fetch(`https://api.openbrewerydb.org/breweries/search?query=${searchTerm}`, { mode: 'cors' }) //return the "fetched" API address
+      .then(function(response) { //return promise from fetch in the form of a response
+        if (!response.ok) { //if response is not ok then
+          throw Error(response.statusText); //return error
         }
-        return response.json();
+        return response.json(); //otherwise return response
       })
       .catch(function(error) {
-        return error;
+        return error; //this error
       });
   }
 }
-
-
-// Search cocktail by name : search.php?s=margarita
-// https://www.thecocktaildb.com/api/json/v1/1/search.php?s=margarita
-
-// List all cocktails by first letter : search.php?f=a
-// https://www.thecocktaildb.com/api/json/v1/1/search.php?f=a
-
-// Search ingredient by name : search.php?i=vodka
-// https://www.thecocktaildb.com/api/json/v1/1/search.php?i=vodka
-
-// Lookup full cocktail details by id : lookup.php?i=11007
-// https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=11007
-
-// Lookup ingredient by ID : lookup.php?iid=552
-// https://www.thecocktaildb.com/api/json/v1/1/lookup.php?iid=552
-
-// Lookup a random cocktail : random.php
-// https://www.thecocktaildb.com/api/json/v1/1/random.php
-
-//https://api.edamam.com/search?q=${searchTerm}&app_id=${process.env.API_ID}&app_key=${process.env.API_KEY}
